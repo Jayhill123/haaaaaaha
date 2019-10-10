@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class Rampsupport : MonoBehaviour
 {
-    private float movespeed = 0.1f
+    public float movespeed = 0.1f;
+
+    private float verticalInput;
+    private Rigidbody2D rigidbody;
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello");
-        //transform.Translate(5, 0, 0);     
+
+        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody.velocity = new Vector2(1, 0);
     }
-
-    // Update is called once per frame
-    void Update()
-    { 
-   //if the player presses up arrow
-   // we move the square up.
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(0, movespeed, 0);                                                                       
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(0, -movespeed, 0);
-        }
-        //Debug.Log("UPDATE METHOD");
-
+    // use fixed update for physics code, because we need to be
+    // careful about how often we call expensive, hardware intensive,
+    // physics stuff.
+    private void FixedUpdate()
+    {
+        verticalInput = Input.GetAxis("vertical");
+        rigidbody.velocity = new Vector2(0, verticalInput * movespeed); 
     }
 }
