@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// Detects when the ball touches the goal, and then wins the level.
-/// </summary>
-public class Goal : MonoBehaviour
+
+public class Obstacle : MonoBehaviour
 {
-    public GameObject winText;
+    public GameObject gameOverText;
 
 
 
@@ -34,19 +32,17 @@ public class Goal : MonoBehaviour
 
         {
 
-            winText.SetActive(true);
+            gameOverText.SetActive(true);
 
             // cue sound effect here
 
             audioSource.Play();
 
-            Debug.Log("The player has entered the goal!");
+            Debug.Log("The player has touched the obstacle!");
 
         }
 
     }
 
 
-
 }
-
