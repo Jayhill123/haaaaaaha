@@ -30,7 +30,7 @@ public class Goal : MonoBehaviour
 
         Debug.Log("Touched trigger.");
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !GameOver.IsGameOver)
 
         {
 

@@ -39,6 +39,7 @@ public class Obstacle : MonoBehaviour
             audioSource.Play();
 
             Debug.Log("The player has touched the obstacle!");
+            GameOver.IsGameOver = true;
 
         }
 

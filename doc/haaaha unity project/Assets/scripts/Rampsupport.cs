@@ -28,6 +28,10 @@ public class Rampsupport : MonoBehaviour
     // physics stuff.
     private void FixedUpdate()
     {
+        if (!GameOver.IsGameOver)
+        {
+
         rigidbody.velocity = new Vector2(0, verticalInput * movespeed); 
+        }
     }
 }
